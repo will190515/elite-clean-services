@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Clean Service | Pulizie professionali a Milano e Pavia</title>
+<meta name="description" content="Elite Clean Service: pulizie professionali per uffici, condomini, locali commerciali, appartamenti ed edifici a Milano e Pavia. Preventivo gratuito.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Crect width='240' height='240' rx='40' fill='%230E3B36'/%3E%3Crect x='60' y='62' width='120' height='30' rx='3' fill='%23F6F5F0' fill-opacity='0.14'/%3E%3Crect x='60' y='105' width='120' height='30' rx='3' fill='%232FB8A6'/%3E%3Crect x='60' y='148' width='120' height='30' rx='3' fill='%23F6F5F0' fill-opacity='0.14'/%3E%3Cpath d='M85 120L102 137L155 116' fill='none' stroke='%230E3B36' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12211D;
+    --paper:#F6F5F0;
+    --paper-2:#EFEEE6;
+    --petrol:#0E3B36;
+    --petrol-2:#0A2B27;
+    --aqua:#2FB8A6;
+    --aqua-dark:#1C8C7D;
+    --slate:#5C6B67;
+    --line: rgba(18,33,29,0.14);
+    --line-light: rgba(246,245,240,0.18);
+    --radius: 4px;
+    --maxw: 1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    line-height:1.12;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  img,svg{max-width:100%; display:block;}
+
+  /* ===== HEADER ===== */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(246,245,240,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:var(--maxw); margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:700; font-size:19px; letter-spacing:-0.01em;}
+  .logo-mark{width:30px; height:30px; flex:none;}
+  .logo small{display:block; font-family:'IBM Plex Mono'; font-weight:400; font-size:10px; letter-spacing:0.08em; color:var(--slate); text-transform:uppercase; margin-top:1px;}
+  nav.links{display:flex; gap:34px; align-items:center;}
+  nav.links a{font-size:14.5px; font-weight:500; color:var(--ink); opacity:0.82; transition:opacity .15s;}
+  nav.links a:hover{opacity:1;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px; border-radius:var(--radius);
+    font-size:14.5px; font-weight:600; font-family:'Inter';
+    border:1px solid transparent; cursor:pointer;
+  }
+  .btn-primary{background:var(--aqua); color:var(--petrol-2);}
+  .btn-primary:hover{background:var(--aqua-dark); color:#fff;}
+  .btn-ghost{border-color:var(--line); background:transparent;}
+  .btn-ghost:hover{border-color:var(--ink);}
+  .btn-ghost-light{border-color:var(--line-light); color:#F6F5F0;}
+  .btn-ghost-light:hover{border-color:#F6F5F0;}
+  .navtoggle{display:none;}
+
+  /* ===== HERO ===== */
+  .hero{
+    background:var(--petrol);
+    color:#F6F5F0;
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--petrol-2);
+  }
+  .hero-video{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center 30%;
+    z-index:0;
+  }
+  .hero-overlay{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:linear-gradient(180deg, rgba(14,59,54,0.80) 0%, rgba(10,43,39,0.90) 100%);
+  }
+  .hero-grid{
+    position:absolute; inset:0; z-index:2;
+    background-image:
+      linear-gradient(rgba(246,245,240,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(246,245,240,0.04) 1px, transparent 1px);
+    background-size:40px 40px;
+    pointer-events:none;
+  }
+  .hero-inner{
+    max-width:var(--maxw); margin:0 auto; padding:88px 32px 0;
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:40px; align-items:end;
+    position:relative; z-index:3;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono'; font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--aqua); display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .eyebrow::before{content:""; width:8px; height:8px; background:var(--aqua); border-radius:50%; display:inline-block;}
+  .hero h1{font-size:50px; color:#F6F5F0; max-width:620px;}
+  .hero h1 em{font-style:normal; color:var(--aqua);}
+  .hero p.lead{margin-top:22px; font-size:17px; max-width:480px; color:rgba(246,245,240,0.78);}
+  .hero-ctas{margin-top:34px; display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-figure{padding-bottom:0;}
+  .hero-strip{
+    border-top:1px solid var(--line-light);
+    margin-top:56px;
+    padding:22px 0;
+    display:grid; grid-template-columns:repeat(4,1fr);
+    position:relative; z-index:3;
+  }
+  .hero-strip div{padding:0 24px; border-left:1px solid var(--line-light);}
+  .hero-strip div:first-child{border-left:none; padding-left:0;}
+  .hero-strip .num{font-family:'Space Grotesk'; font-size:22px; font-weight:600; color:var(--aqua);}
+  .hero-strip .lbl{font-size:12.5px; color:rgba(246,245,240,0.68); margin-top:4px;}
+
+  /* ===== SECTION SCAFFOLD ===== */
+  section{padding:96px 0;}
+  .section-tight{padding:72px 0;}
+  .kicker{
+    font-family:'IBM Plex Mono'; font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--aqua-dark); margin-bottom:14px; display:block;
+  }
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head h2{font-size:32px;}
+  .section-head p{margin-top:14px; font-size:16px; color:var(--slate);}
+  .alt{background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .dark{background:var(--petrol); color:#F6F5F0;}
+  .dark .kicker{color:var(--aqua);}
+  .dark .section-head h2{color:#F6F5F0;}
+  .dark .section-head p{color:rgba(246,245,240,0.7);}
+
+  /* ===== CHI SIAMO ===== */
+  .about{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center;}
+  .about-copy p{font-size:16px; color:var(--slate); margin-bottom:16px;}
+  .about-copy p:last-child{margin-bottom:0;}
+  .about-figure{border:1px solid var(--line); border-radius:8px; padding:28px; background:var(--paper);}
+  .about-list{list-style:none; margin:0; padding:0; display:grid; gap:16px;}
+  .about-list li{display:flex; gap:14px; align-items:flex-start; font-size:14.5px;}
+  .about-list .dot{width:7px; height:7px; border-radius:50%; background:var(--aqua-dark); margin-top:7px; flex:none;}
+
+  /* ===== SETTORI / SERVIZI ===== */
+  .service-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .service-card{background:var(--paper); padding:34px 30px; display:flex; flex-direction:column; gap:14px;}
+  .service-card .tag{font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--slate); letter-spacing:0.06em;}
+  .service-card h3{font-size:19px;}
+  .service-card p{font-size:14.5px; color:var(--slate);}
+  .service-card ul{margin:6px 0 0; padding-left:18px; font-size:13.5px; color:var(--slate);}
+  .service-card ul li{margin-bottom:4px;}
+
+  .extra-row{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-top:44px;}
+  .extra-item{border-left:2px solid var(--aqua); padding-left:16px;}
+  .extra-item h4{font-size:15px; margin-bottom:6px;}
+  .extra-item p{font-size:13.5px; color:var(--slate);}
+
+  /* ===== GALLERIA ===== */
+  .gallery-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .gallery-item{
+    position:relative; border-radius:6px; overflow:hidden; aspect-ratio:4/3;
+    cursor:zoom-in; background:var(--paper-2);
+  }
+  .gallery-item img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease;}
+  .gallery-item:hover img{transform:scale(1.06);}
+  .gallery-item .cap{
+    position:absolute; left:0; right:0; bottom:0; padding:10px 14px;
+    background:linear-gradient(180deg, transparent, rgba(10,43,39,0.82));
+    color:#F6F5F0; font-family:'IBM Plex Mono'; font-size:11.5px; letter-spacing:0.04em;
+  }
+  .lightbox{
+    display:none; position:fixed; inset:0; z-index:200; background:rgba(10,20,18,0.9);
+    align-items:center; justify-content:center; padding:40px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:min(900px,90vw); max-height:80vh; border-radius:6px; display:block;}
+  .lightbox .lb-cap{color:#F6F5F0; font-family:'IBM Plex Mono'; font-size:13px; text-align:center; margin-top:14px;}
+  .lightbox .lb-close{
+    position:absolute; top:26px; right:32px; color:#F6F5F0; font-size:28px; background:none; border:none; cursor:pointer; line-height:1;
+  }
+
+  /* ===== PERCHE' SCEGLIERCI ===== */
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:36px;}
+  .why-card .num{font-family:'IBM Plex Mono'; font-size:13px; color:var(--aqua); margin-bottom:14px; display:block;}
+  .why-card h3{font-size:18px; color:#F6F5F0; margin-bottom:10px;}
+  .why-card p{font-size:14.5px; color:rgba(246,245,240,0.68);}
+
+  /* ===== PROCESSO ===== */
+  .process{display:grid; grid-template-columns:repeat(5,1fr); gap:0; position:relative;}
+  .process::before{content:""; position:absolute; top:19px; left:0; right:0; height:1px; background:var(--line); z-index:0;}
+  .process-step{position:relative; padding-right:20px;}
+  .process-step .step-num{
+    width:38px; height:38px; border-radius:50%; background:var(--paper); border:1.5px solid var(--petrol);
+    display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk'; font-weight:600; font-size:14px;
+    position:relative; z-index:1; margin-bottom:18px;
+  }
+  .process-step h4{font-size:15px; margin-bottom:8px;}
+  .process-step p{font-size:13.5px; color:var(--slate);}
+
+  /* ===== TESTIMONIANZE ===== */
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .testi-card{background:var(--paper); border:1px dashed var(--line); border-radius:8px; padding:26px; display:flex; flex-direction:column; gap:16px;}
+  .testi-card .stars{color:var(--aqua-dark); font-size:14px; letter-spacing:2px;}
+  .testi-card p.quote{font-size:14.5px; color:var(--slate); font-style:italic;}
+  .testi-card .who{font-size:13px; color:var(--slate); font-family:'IBM Plex Mono'; padding-top:10px; border-top:1px solid var(--line);}
+
+  /* ===== FAQ ===== */
+  .faq{max-width:820px;}
+  .faq-item{border-bottom:1px solid var(--line); padding:22px 0;}
+  .faq-q{display:flex; justify-content:space-between; align-items:center; cursor:pointer; gap:20px;}
+  .faq-q h4{font-size:16px; font-weight:500;}
+  .faq-q .plus{font-size:20px; color:var(--aqua-dark); font-family:'Space Grotesk'; transition:transform .2s; flex:none;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .faq-item.open .faq-a{max-height:240px;}
+  .faq-a p{font-size:14.5px; color:var(--slate); padding-top:12px; max-width:640px;}
+
+  /* ===== ZONA OPERATIVA ===== */
+  .zone{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  .zone-list{display:grid; grid-template-columns:1fr 1fr; gap:10px 24px; margin-top:22px;}
+  .zone-list span{font-size:14px; color:var(--slate); padding:8px 0; border-bottom:1px solid var(--line);}
+
+  /* ===== CONTATTI ===== */
+  .contact-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:60px;}
+  .contact-info h3{font-size:20px; margin-bottom:18px; color:#F6F5F0;}
+  .contact-row{display:flex; gap:14px; margin-bottom:20px; align-items:flex-start;}
+  .contact-row .lbl{font-family:'IBM Plex Mono'; font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--aqua); min-width:90px; padding-top:2px;}
+  .contact-row .val{font-size:15px; color:rgba(246,245,240,0.86);}
+  .contact-row .val small{display:block; color:rgba(246,245,240,0.5); font-size:12.5px; margin-top:3px;}
+
+  form.quote{background:#F6F5F0; border-radius:8px; padding:32px; color:var(--ink);}
+  form.quote .row{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;}
+  form.quote label{font-size:12.5px; font-weight:600; display:block; margin-bottom:6px; color:var(--slate);}
+  form.quote input, form.quote select, form.quote textarea{
+    width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:4px; font-family:'Inter'; font-size:14px; background:#fff; color:var(--ink);
+  }
+  form.quote textarea{resize:vertical; min-height:80px;}
+  form.quote .full{margin-bottom:14px;}
+  form.quote button{width:100%; margin-top:6px; padding:14px; font-size:15px;}
+  .form-note{font-size:12.5px; color:var(--slate); margin-top:12px;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--petrol-2); color:rgba(246,245,240,0.62); padding:40px 0;}
+  .foot-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; font-size:13px;}
+  .foot-inner .logo{color:#F6F5F0; font-size:15px;}
+  .foot-links{display:flex; gap:24px;}
+  .foot-links a:hover{color:#F6F5F0;}
+
+  /* ===== MOBILE ===== */
+  @media (max-width:920px){
+    .hero-inner{grid-template-columns:1fr; padding-top:60px;}
+    .hero h1{font-size:36px;}
+    .hero-strip{grid-template-columns:repeat(2,1fr); row-gap:20px;}
+    .hero-strip div:nth-child(3){border-left:none;}
+    .about, .zone, .contact-grid{grid-template-columns:1fr; gap:36px;}
+    .service-grid{grid-template-columns:1fr;}
+    .extra-row{grid-template-columns:1fr 1fr; row-gap:26px;}
+    .why-grid, .testi-grid{grid-template-columns:1fr; gap:26px;}
+    .gallery-grid{grid-template-columns:1fr 1fr; gap:10px;}
+    .process{grid-template-columns:1fr 1fr; row-gap:30px;}
+    .process::before{display:none;}
+    nav.links{position:fixed; inset:64px 0 0 0; background:var(--paper); flex-direction:column; padding:32px; gap:22px; align-items:flex-start; transform:translateY(-110%); transition:transform .25s ease; z-index:90; border-top:1px solid var(--line);}
+    nav.links.open{transform:translateY(0);}
+    .navtoggle{display:block; background:none; border:none; cursor:pointer; padding:6px;}
+    .navtoggle span, .navtoggle span::before, .navtoggle span::after{content:""; display:block; width:22px; height:2px; background:var(--ink); position:relative; transition:.2s;}
+    .navtoggle span::before{position:absolute; top:-7px;}
+    .navtoggle span::after{position:absolute; top:7px;}
+    form.quote .row{grid-template-columns:1fr;}
+  }
+  @media (max-width:600px){
+    .extra-row{grid-template-columns:1fr;}
+    .zone-list{grid-template-columns:1fr;}
+  }
+
+  [data-reveal]{opacity:0; transform:translateY(16px); transition:opacity .5s ease, transform .5s ease;}
+  [data-reveal].visible{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <svg class="logo-mark" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="240" height="240" rx="40" fill="#0E3B36"/>
+        <rect x="60" y="62" width="120" height="30" rx="3" fill="#F6F5F0" fill-opacity="0.14"/>
+        <rect x="60" y="105" width="120" height="30" rx="3" fill="#2FB8A6"/>
+        <rect x="60" y="148" width="120" height="30" rx="3" fill="#F6F5F0" fill-opacity="0.14"/>
+        <path d="M85 120L102 137L155 116" fill="none" stroke="#0E3B36" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>Elite Clean Service<small>Milano · Pavia</small></div>
+    </div>
+    <nav class="links" id="navLinks">
+      <a href="#chi-siamo">Chi siamo</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#galleria">Galleria</a>
+      <a href="#perche">Perché sceglierci</a>
+      <a href="#zona">Zona operativa</a>
+      <a href="#faq">Domande frequenti</a>
+      <a href="#contatti" class="btn btn-primary">Preventivo gratuito</a>
+    </nav>
+    <button class="navtoggle" id="navToggle" aria-label="Apri menu"><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="https://images.pexels.com/videos/6195521/pexels-photo-6195521.jpeg?auto=compress&cs=tinysrgb&h=900&fit=crop&w=1600">
+    <source src="https://videos.pexels.com/video-files/6195521/6195521-uhd_1440_2560_25fps.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">Pulizie professionali · Milano e Pavia</span>
+      <h1>Ogni edificio ha una <em>planimetria</em>. Noi abbiamo un protocollo per ogni sua zona.</h1>
+      <p class="lead">Uffici, condomini, locali commerciali e appartamenti: interveniamo con un metodo di lavoro tracciato, prodotti certificati e squadre formate. Sopralluogo e preventivo, senza impegno.</p>
+      <div class="hero-ctas">
+        <a href="#contatti" class="btn btn-primary">Richiedi un preventivo gratuito</a>
+        <a href="#servizi" class="btn btn-ghost-light">Guarda i servizi</a>
+      </div>
+    </div>
+    <div class="hero-figure">
+      <svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schema di un edificio con le zone servite da Elite Clean Service">
+        <rect x="20" y="20" width="420" height="260" fill="none" stroke="rgba(246,245,240,0.25)" stroke-width="1"/>
+        <line x1="20" y1="86" x2="440" y2="86" stroke="rgba(246,245,240,0.2)" stroke-width="1"/>
+        <line x1="20" y1="152" x2="440" y2="152" stroke="rgba(246,245,240,0.2)" stroke-width="1"/>
+        <line x1="20" y1="218" x2="440" y2="218" stroke="rgba(246,245,240,0.2)" stroke-width="1"/>
+        <line x1="230" y1="20" x2="230" y2="280" stroke="rgba(246,245,240,0.15)" stroke-width="1" stroke-dasharray="2 4"/>
+        <rect x="30" y="30" width="190" height="46" fill="rgba(47,184,166,0.12)" stroke="#2FB8A6" stroke-width="1"/>
+        <text x="42" y="58" fill="#2FB8A6" font-family="IBM Plex Mono" font-size="11">01 · UFFICI</text>
+        <rect x="240" y="30" width="190" height="46" fill="rgba(246,245,240,0.04)" stroke="rgba(246,245,240,0.3)" stroke-width="1"/>
+        <text x="252" y="58" fill="rgba(246,245,240,0.75)" font-family="IBM Plex Mono" font-size="11">02 · CONDOMINI</text>
+        <rect x="30" y="96" width="190" height="46" fill="rgba(246,245,240,0.04)" stroke="rgba(246,245,240,0.3)" stroke-width="1"/>
+        <text x="42" y="124" fill="rgba(246,245,240,0.75)" font-family="IBM Plex Mono" font-size="11">03 · LOCALI COMMERCIALI</text>
+        <rect x="240" y="96" width="190" height="46" fill="rgba(47,184,166,0.12)" stroke="#2FB8A6" stroke-width="1"/>
+        <text x="252" y="124" fill="#2FB8A6" font-family="IBM Plex Mono" font-size="11">04 · APPARTAMENTI</text>
+        <rect x="30" y="162" width="400" height="46" fill="rgba(246,245,240,0.04)" stroke="rgba(246,245,240,0.3)" stroke-width="1"/>
+        <text x="42" y="190" fill="rgba(246,245,240,0.75)" font-family="IBM Plex Mono" font-size="11">05 · EDIFICI E STABILI · PARTI COMUNI</text>
+        <rect x="30" y="228" width="400" height="42" fill="none" stroke="rgba(246,245,240,0.3)" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="42" y="253" fill="rgba(246,245,240,0.55)" font-family="IBM Plex Mono" font-size="10">SERVIZI EXTRA · SANIFICAZIONE / VETRI / POST-CANTIERE</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero-strip">
+      <div><div class="num">5</div><div class="lbl">categorie di spazi seguite: uffici, condomini, negozi, appartamenti, edifici</div></div>
+      <div><div class="num">Mi + Pv</div><div class="lbl">copertura su Milano città, hinterland e provincia di Pavia</div></div>
+      <div><div class="num">100%</div><div class="lbl">squadre formate, referenziate e coperte da polizza RC</div></div>
+      <div><div class="num">0€</div><div class="lbl">sopralluogo e preventivo, sempre gratuiti</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="chi-siamo">
+  <div class="wrap about" data-reveal>
+    <div class="about-figure">
+      <ul class="about-list">
+        <li><span class="dot"></span> Squadre dipendenti e formate, non subappaltate: rispondiamo noi di ogni intervento.</li>
+        <li><span class="dot"></span> Piano di pulizia scritto per ogni cliente, con frequenze e mansionari concordati.</li>
+        <li><span class="dot"></span> Prodotti professionali certificati, opzione ecologica su richiesta.</li>
+        <li><span class="dot"></span> Un referente unico che segue il contratto dal sopralluogo al controllo qualità.</li>
+      </ul>
+    </div>
+    <div class="about-copy">
+      <span class="kicker">Chi siamo</span>
+      <h2 style="font-size:30px; margin-bottom:18px;">Un metodo di lavoro pensato per ogni tipo di spazio</h2>
+      <p>Elite Clean Service è un'impresa di pulizie professionali che opera a Milano e Pavia per amministratori di condominio, aziende, attività commerciali e privati. Non offriamo un servizio generico: ogni ambiente, dall'open space all'appartamento in affitto breve, ha esigenze diverse, e costruiamo il piano di intervento su misura dopo un sopralluogo gratuito.</p>
+      <p>Lavoriamo con squadre formate sulle procedure di sicurezza e sui protocolli di sanificazione, contratti chiari e un referente dedicato per ogni cliente, così da garantire continuità anche quando cambia la persona in servizio.</p>
+      <p>L'obiettivo è semplice: che la pulizia diventi un dettaglio di cui non doversi più occupare.</p>
+    </div>
+  </div>
+</section>
+
+<section id="servizi" class="alt">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="kicker">Servizi</span>
+      <h2>Un protocollo diverso per ogni tipo di edificio</h2>
+      <p>Cinque aree di intervento principali, ciascuna con un piano di lavoro dedicato. Il dettaglio esatto delle attività viene definito insieme al cliente in fase di sopralluogo.</p>
+    </div>
+
+    <div class="service-grid" data-reveal>
+      <div class="service-card">
+        <span class="tag">01 · UFFICI</span>
+        <h3>Pulizie uffici</h3>
+        <p>Interventi giornalieri o periodici fuori orario di lavoro, per non interrompere l'attività.</p>
+        <ul>
+          <li>Postazioni, sale riunioni, reception</li>
+          <li>Sanificazione bagni e aree break</li>
+          <li>Pavimenti, vetri interni, cestini e raccolta differenziata</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="tag">02 · CONDOMINI</span>
+        <h3>Pulizie condomini</h3>
+        <p>Contratti periodici per amministratori, con calendario e report concordati.</p>
+        <ul>
+          <li>Scale, pianerottoli, ascensori, androni</li>
+          <li>Vetri delle parti comuni e citofoni</li>
+          <li>Cortili, aree esterne e gestione dei bidoni rifiuti</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="tag">03 · LOCALI COMMERCIALI</span>
+        <h3>Negozi e locali commerciali</h3>
+        <p>Pulizia prima o dopo l'apertura, così i clienti trovano sempre l'ambiente pronto.</p>
+        <ul>
+          <li>Negozi, ristoranti, bar, palestre, showroom</li>
+          <li>Vetrine, pavimenti, bagni pubblici</li>
+          <li>Interventi rapidi anche nel weekend</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="tag">04 · APPARTAMENTI</span>
+        <h3>Pulizie appartamenti</h3>
+        <p>Per proprietari, affitti brevi e famiglie, con interventi puntuali o ricorrenti.</p>
+        <ul>
+          <li>Pulizia ordinaria e straordinaria</li>
+          <li>Check-out per affitti brevi e turistici</li>
+          <li>Pulizie post-ristrutturazione o post-trasloco</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="tag">05 · EDIFICI E STABILI</span>
+        <h3>Edifici, stabili e capannoni</h3>
+        <p>Manutenzione delle parti comuni di grandi immobili e spazi ad uso non residenziale.</p>
+        <ul>
+          <li>Parti comuni di stabili e complessi di grandi dimensioni</li>
+          <li>Capannoni e aree logistiche</li>
+          <li>Piani di manutenzione periodica personalizzati</li>
+        </ul>
+      </div>
+      <div class="service-card" style="background:var(--petrol); color:#F6F5F0;">
+        <span class="tag" style="color:var(--aqua);">SU MISURA</span>
+        <h3>Non trovi il tuo caso?</h3>
+        <p style="color:rgba(246,245,240,0.72);">Ogni immobile ha caratteristiche proprie: raccontaci il tuo spazio e ti prepariamo un preventivo dedicato, senza impegno.</p>
+        <a href="#contatti" class="btn btn-ghost-light" style="margin-top:auto; align-self:flex-start;">Parliamone</a>
+      </div>
+    </div>
+
+    <div class="extra-row" data-reveal>
+      <div class="extra-item">
+        <h4>Sanificazione ambienti</h4>
+        <p>Trattamenti mirati per uffici, negozi e aree comuni condominiali.</p>
+      </div>
+      <div class="extra-item">
+        <h4>Lavaggio vetri</h4>
+        <p>Vetrate, finestre e infissi, anche per superfici di grandi dimensioni.</p>
+      </div>
+      <div class="extra-item">
+        <h4>Post-cantiere</h4>
+        <p>Rimozione di polvere e residui dopo lavori edili o ristrutturazioni.</p>
+      </div>
+      <div class="extra-item">
+        <h4>Trattamento pavimenti</h4>
+        <p>Lavaggio, cerature e trattamenti protettivi per pavimenti in ogni materiale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galleria">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="kicker">Galleria</span>
+      <h2>Il lavoro, per immagini</h2>
+      <p>Alcuni scatti rappresentativi delle attività che svolgiamo: pulizia di uffici, vetri, tessuti e superfici. Le foto reali delle nostre squadre in azione verranno aggiunte man mano che saranno disponibili.</p>
+    </div>
+    <div class="gallery-grid" data-reveal>
+      <div class="gallery-item" onclick="openLightbox(0)">
+        <img src="https://images.unsplash.com/photo-1437326300822-01d8f13c024f?w=900&q=80&auto=format&fit=crop" alt="Pulizia pavimenti in ufficio" loading="lazy">
+        <div class="cap">Pulizia pavimenti · Uffici</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(1)">
+        <img src="https://images.unsplash.com/photo-1740657254989-42fe9c3b8cce?w=900&q=80&auto=format&fit=crop" alt="Pulizia pavimenti con attrezzatura professionale" loading="lazy">
+        <div class="cap">Trattamento pavimenti</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(2)">
+        <img src="https://images.unsplash.com/photo-1686178827149-6d55c72d81df?w=900&q=80&auto=format&fit=crop" alt="Pulizia tessuti e imbottiti" loading="lazy">
+        <div class="cap">Pulizia tessuti · Appartamenti</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(3)">
+        <img src="https://images.unsplash.com/photo-1482449609509-eae2a7ea42b7?w=900&q=80&auto=format&fit=crop" alt="Lavaggio vetri in quota" loading="lazy">
+        <div class="cap">Lavaggio vetri</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(4)">
+        <img src="https://images.unsplash.com/photo-1742483359033-13315b247c74?w=900&q=80&auto=format&fit=crop" alt="Pulizia di tappeti e moquette" loading="lazy">
+        <div class="cap">Tappeti e moquette</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(5)">
+        <img src="https://images.unsplash.com/photo-1668600418844-5b3d2e381e10?w=900&q=80&auto=format&fit=crop" alt="Attrezzatura professionale per le pulizie" loading="lazy">
+        <div class="cap">Attrezzatura professionale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()" aria-label="Chiudi">&times;</button>
+  <div>
+    <img id="lightboxImg" src="" alt="">
+    <div class="lb-cap" id="lightboxCap"></div>
+  </div>
+</div>
+
+<section id="perche" class="dark">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="kicker">Perché sceglierci</span>
+      <h2>Quello che chiediamo a noi stessi, prima ancora che al cliente</h2>
+    </div>
+    <div class="why-grid" data-reveal>
+      <div class="why-card">
+        <span class="num">A</span>
+        <h3>Personale formato e stabile</h3>
+        <p>Squadre selezionate e formate sulle procedure, non personale improvvisato o a rotazione continua.</p>
+      </div>
+      <div class="why-card">
+        <span class="num">B</span>
+        <h3>Contratti flessibili</h3>
+        <p>Interventi una tantum, periodici o in abbonamento: il contratto si adatta alle tue esigenze, non il contrario.</p>
+      </div>
+      <div class="why-card">
+        <span class="num">C</span>
+        <h3>Copertura assicurativa</h3>
+        <p>Attività coperta da polizza di responsabilità civile, per lavorare in sicurezza per te e per noi.</p>
+      </div>
+      <div class="why-card">
+        <span class="num">D</span>
+        <h3>Un referente dedicato</h3>
+        <p>Un solo punto di contatto per pianificare, segnalare esigenze e ricevere risposte, senza call center.</p>
+      </div>
+      <div class="why-card">
+        <span class="num">E</span>
+        <h3>Preventivo trasparente</h3>
+        <p>Costi chiari fin dal sopralluogo, senza voci nascoste che compaiono in fattura.</p>
+      </div>
+      <div class="why-card">
+        <span class="num">F</span>
+        <h3>Prodotti certificati</h3>
+        <p>Detergenti professionali, con opzione a ridotto impatto ambientale su richiesta del cliente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="kicker">Come lavoriamo</span>
+      <h2>Dal primo contatto al servizio a regime</h2>
+    </div>
+    <div class="process" data-reveal>
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h4>Sopralluogo gratuito</h4>
+        <p>Valutiamo lo spazio insieme a te e capiamo esigenze e criticità.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h4>Preventivo su misura</h4>
+        <p>Riceverai un preventivo scritto, con frequenze e attività dettagliate.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h4>Pianificazione</h4>
+        <p>Definiamo calendario, orari e referente per l'avvio del servizio.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h4>Esecuzione e controllo</h4>
+        <p>Interveniamo secondo il piano, con verifiche periodiche di qualità.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">5</div>
+        <h4>Ascolto continuo</h4>
+        <p>Raccogliamo feedback e adattiamo il servizio nel tempo, se serve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="kicker">Recensioni</span>
+      <h2>Cosa dicono di noi</h2>
+      <p>Le testimonianze dei primi clienti verranno pubblicate qui appena raccolte: gli spazi sotto sono un modello pronto da compilare.</p>
+    </div>
+    <div class="testi-grid" data-reveal>
+      <div class="testi-card">
+        <span class="stars">★★★★★</span>
+        <p class="quote">[Spazio per la testimonianza di un cliente — da inserire]</p>
+        <div class="who">Nome cliente · Tipo di immobile</div>
+      </div>
+      <div class="testi-card">
+        <span class="stars">★★★★★</span>
+        <p class="quote">[Spazio per la testimonianza di un cliente — da inserire]</p>
+        <div class="who">Nome cliente · Tipo di immobile</div>
+      </div>
+      <div class="testi-card">
+        <span class="stars">★★★★★</span>
+        <p class="quote">[Spazio per la testimonianza di un cliente — da inserire]</p>
+        <div class="who">Nome cliente · Tipo di immobile</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="zona">
+  <div class="wrap zone" data-reveal>
+    <div>
+      <span class="kicker">Zona operativa</span>
+      <h2 style="font-size:30px; margin-bottom:16px;">Operiamo su Milano e Pavia, città e provincia</h2>
+      <p style="color:var(--slate); font-size:15.5px;">Copriamo Milano città, l'hinterland e la provincia di Pavia. Per immobili fuori da queste aree, contattaci comunque: valutiamo caso per caso.</p>
+      <div class="zone-list">
+        <span>Milano</span><span>Pavia</span>
+        <span>Sesto San Giovanni</span><span>Vigevano</span>
+        <span>Cinisello Balsamo</span><span>Voghera</span>
+        <span>San Donato Milanese</span><span>Mortara</span>
+        <span>Rho</span><span>Belgioioso</span>
+        <span>Assago</span><span>Landriano</span>
+      </div>
+    </div>
+    <div>
+      <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mappa stilizzata dell'area operativa tra Milano e Pavia">
+        <rect x="10" y="10" width="380" height="280" fill="none" stroke="var(--line)" stroke-width="1"/>
+        <line x1="10" y1="80" x2="390" y2="80" stroke="var(--line)" stroke-width="1"/>
+        <line x1="10" y1="150" x2="390" y2="150" stroke="var(--line)" stroke-width="1"/>
+        <line x1="10" y1="220" x2="390" y2="220" stroke="var(--line)" stroke-width="1"/>
+        <line x1="100" y1="10" x2="100" y2="290" stroke="var(--line)" stroke-width="1"/>
+        <line x1="200" y1="10" x2="200" y2="290" stroke="var(--line)" stroke-width="1"/>
+        <line x1="300" y1="10" x2="300" y2="290" stroke="var(--line)" stroke-width="1"/>
+        <line x1="120" y1="70" x2="230" y2="200" stroke="#2FB8A6" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <circle cx="120" cy="70" r="8" fill="#0E3B36"/>
+        <text x="134" y="66" font-family="IBM Plex Mono" font-size="12" fill="var(--ink)">Milano</text>
+        <circle cx="230" cy="200" r="8" fill="#2FB8A6"/>
+        <text x="244" y="196" font-family="IBM Plex Mono" font-size="12" fill="var(--ink)">Pavia</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="kicker">Domande frequenti</span>
+      <h2>Le domande che ci fanno più spesso</h2>
+    </div>
+    <div class="faq" data-reveal>
+      <div class="faq-item open">
+        <div class="faq-q"><h4>Il sopralluogo è davvero gratuito?</h4><span class="plus">+</span></div>
+        <div class="faq-a"><p>Sì. Veniamo a vedere lo spazio, capiamo le esigenze e prepariamo un preventivo scritto: non è dovuto nulla fino alla firma del contratto.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h4>Che tipo di contratti offrite?</h4><span class="plus">+</span></div>
+        <div class="faq-a"><p>Interventi una tantum, contratti periodici (settimanali, mensili) o in abbonamento. Definiamo insieme frequenza e orari più adatti al tuo spazio.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h4>Fornite voi i prodotti e le attrezzature?</h4><span class="plus">+</span></div>
+        <div class="faq-a"><p>Sì, portiamo prodotti professionali certificati e attrezzatura propria. Su richiesta possiamo utilizzare prodotti a ridotto impatto ambientale.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h4>Lavorate anche fuori dall'orario di apertura?</h4><span class="plus">+</span></div>
+        <div class="faq-a"><p>Sì, per uffici e locali commerciali organizziamo gli interventi prima o dopo l'orario di attività, per non interferire con il lavoro quotidiano.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h4>Siete assicurati?</h4><span class="plus">+</span></div>
+        <div class="faq-a"><p>Sì, la nostra attività è coperta da polizza di responsabilità civile verso terzi.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contatti" class="dark">
+  <div class="wrap contact-grid">
+    <div class="contact-info" data-reveal>
+      <span class="kicker">Contatti</span>
+      <h3>Parliamo del tuo spazio</h3>
+      <p style="color:rgba(246,245,240,0.68); font-size:15px; margin-bottom:30px;">Scrivici o chiamaci: fissiamo il sopralluogo gratuito e prepariamo un preventivo su misura entro pochi giorni.</p>
+      <div class="contact-row">
+        <span class="lbl">Telefono</span>
+        <span class="val">+39 0000 000000<small>Da personalizzare con il numero definitivo</small></span>
+      </div>
+      <div class="contact-row">
+        <span class="lbl">Email</span>
+        <span class="val">info@eliteclean-service.it<small>Da verificare in base al dominio scelto</small></span>
+      </div>
+      <div class="contact-row">
+        <span class="lbl">Zona</span>
+        <span class="val">Milano e provincia · Pavia e provincia</span>
+      </div>
+      <div class="contact-row">
+        <span class="lbl">Orari</span>
+        <span class="val">Lun–Sab, 8:00–19:00<small>Interventi anche serali su richiesta</small></span>
+      </div>
+    </div>
+
+    <form class="quote" data-reveal onsubmit="event.preventDefault(); document.getElementById('formOk').style.display='block'; this.style.display='none';">
+      <div class="row">
+        <div>
+          <label for="nome">Nome e cognome</label>
+          <input id="nome" type="text" placeholder="Es. Giulia Bianchi" required>
+        </div>
+        <div>
+          <label for="telefono">Telefono</label>
+          <input id="telefono" type="tel" placeholder="Es. 333 1234567" required>
+        </div>
+      </div>
+      <div class="full">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="nome@email.it" required>
+      </div>
+      <div class="row">
+        <div>
+          <label for="tipo">Tipo di spazio</label>
+          <select id="tipo">
+            <option>Ufficio</option>
+            <option>Condominio</option>
+            <option>Locale commerciale</option>
+            <option>Appartamento</option>
+            <option>Edificio / stabile</option>
+            <option>Altro</option>
+          </select>
+        </div>
+        <div>
+          <label for="citta">Comune</label>
+          <input id="citta" type="text" placeholder="Es. Milano, Pavia...">
+        </div>
+      </div>
+      <div class="full">
+        <label for="note">Descrivi lo spazio e le esigenze</label>
+        <textarea id="note" placeholder="Metratura indicativa, frequenza desiderata, eventuali richieste particolari"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Richiedi il preventivo gratuito</button>
+      <p class="form-note">Nota: questo modulo è dimostrativo e va collegato a un servizio di invio email o a un backend prima della pubblicazione online.</p>
+    </form>
+    <p id="formOk" style="display:none; color:var(--aqua); font-size:15px; grid-column:2;">Grazie! La richiesta è stata compilata correttamente — una volta collegato il modulo a un sistema di invio reale, il messaggio arriverà via email.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="logo">Elite Clean Service</div>
+    <div class="foot-links">
+      <a href="#chi-siamo">Chi siamo</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#contatti">Contatti</a>
+    </div>
+    <div class="mono">© 2026 Elite Clean Service · Milano e Pavia</div>
+  </div>
+</footer>
+
+<script>
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){ links.classList.toggle('open'); });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ links.classList.remove('open'); });
+  });
+
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if(!wasOpen){ item.classList.add('open'); }
+    });
+  });
+
+  var galleryImages = [
+    {src:'https://images.unsplash.com/photo-1437326300822-01d8f13c024f?w=1600&q=80&auto=format&fit=crop', cap:'Pulizia pavimenti · Uffici'},
+    {src:'https://images.unsplash.com/photo-1740657254989-42fe9c3b8cce?w=1600&q=80&auto=format&fit=crop', cap:'Trattamento pavimenti'},
+    {src:'https://images.unsplash.com/photo-1686178827149-6d55c72d81df?w=1600&q=80&auto=format&fit=crop', cap:'Pulizia tessuti · Appartamenti'},
+    {src:'https://images.unsplash.com/photo-1482449609509-eae2a7ea42b7?w=1600&q=80&auto=format&fit=crop', cap:'Lavaggio vetri'},
+    {src:'https://images.unsplash.com/photo-1742483359033-13315b247c74?w=1600&q=80&auto=format&fit=crop', cap:'Tappeti e moquette'},
+    {src:'https://images.unsplash.com/photo-1668600418844-5b3d2e381e10?w=1600&q=80&auto=format&fit=crop', cap:'Attrezzatura professionale'}
+  ];
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxCap = document.getElementById('lightboxCap');
+  function openLightbox(i){
+    lightboxImg.src = galleryImages[i].src;
+    lightboxImg.alt = galleryImages[i].cap;
+    lightboxCap.textContent = galleryImages[i].cap;
+    lightbox.classList.add('open');
+  }
+  function closeLightbox(){ lightbox.classList.remove('open'); lightboxImg.src=''; }
+  lightbox.addEventListener('click', function(e){ if(e.target === lightbox){ closeLightbox(); } });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeLightbox(); } });
+
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('visible'); }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(function(el){ io.observe(el); });
+</script>
+
+</body>
+</html>
